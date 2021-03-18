@@ -4,10 +4,11 @@ var Schema = mongoose.Schema;
 var MusiciansSchema = new Schema(
   {
     name: String,
-    
     album: String,
     id: String,
     filepath: String,
+    debut: String,
+    members: String,
   },
   {
     timestamps: true,
