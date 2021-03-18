@@ -62,7 +62,7 @@ router.get("/musicians", (req, res) => {
 
 // find and return a single user based upon id - not _id
 router.get("/musicians/:id", (req, res) => {
-  Writers.findOne({ id: req.params.id }).then(
+  Musicians.findOne({ id: req.params.id }).then(
     (musiciansArray) => {
       res.json(musiciansArray);
     },
@@ -87,7 +87,7 @@ router.delete("/musicians/:id", (req, res) => {
   });
 });
 
-// CREATE new writer
+// CREATE new 
 
 router.post("/musicians", (req, res) => {
   // create instance writer model
