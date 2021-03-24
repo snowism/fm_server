@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var MusiciansSchema = new Schema(
+var SneakersSchema = new Schema(
   {
     name: String,
-    album: String,
+    brand: String,
     id: String,
     filepath: String,
-    debut: String,
-    members: String,
+    colour: String,
+    price: String,
   },
   {
     timestamps: true,
@@ -16,4 +16,4 @@ var MusiciansSchema = new Schema(
 );
 
 // singular capitalized name for the mongo collection - Writer
-module.exports = mongoose.model("Musician", MusiciansSchema);
+module.exports = mongoose.model("Sneaker", SneakersSchema);

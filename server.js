@@ -5,7 +5,7 @@ const cors = require("cors");
 const conn = require("./connection");
 
 // One model per collection
-const Musicians = require("./models/musicians-model");
+const Sneakers = require("./models/sneakers-model");
 
 const app = express();
 app.use(bodyParser.json());
@@ -48,11 +48,11 @@ const router = express.Router();
 app.use("/api", router);
 
 // get all
-router.get("/musicians", (req, res) => {
-  console.log("musicians requested");
-  Musicians.find().then(
-    (musiciansArray) => {
-      res.json(musiciansArray);
+router.get("/sneakers", (req, res) => {
+  console.log("Sneakers requested");
+  Sneakers.find().then(
+    (sneakersArray) => {
+      res.json(sneakersArray);
     },
     () => {
       res.json({ result: false });
@@ -61,10 +61,10 @@ router.get("/musicians", (req, res) => {
 });
 
 // find and return a single user based upon id - not _id
-router.get("/musicians/:id", (req, res) => {
-  Musicians.findOne({ id: req.params.id }).then(
-    (musiciansArray) => {
-      res.json(musiciansArray);
+router.get("/sneakers/:id", (req, res) => {
+  Sneakers.findOne({ id: req.params.id }).then(
+    (sneakersArray) => {
+      res.json(sneakersArray);
     },
     () => {
       res.json({ result: false });
@@ -76,7 +76,7 @@ router.get("/musicians/:id", (req, res) => {
 
 router.delete("/musicians/:id", (req, res) => {
   console.table(req.params);
-  Musicians.deleteOne({ id: req.params.id }, function (err, result) {
+  Sneakers.deleteOne({ id: req.params.id }, function (err, result) {
     // res.json({ result: true });
     // res.send(err);
     if (err) {
@@ -89,21 +89,21 @@ router.delete("/musicians/:id", (req, res) => {
 
 // CREATE new 
 
-router.post("/musicians", (req, res) => {
+router.post("/sneakers", (req, res) => {
   // create instance writer model
 
-  var newmusician = new Musicians();
+  var newsneaker = new Sneakers();
   var reactForm = req.body;
 
   // copy form data into instance. nice.
 
-  Object.assign(newmusician, reactForm);
+  Object.assign(newsneaker, reactForm);
 
   // for debug only
 
   console.log(">>> ", reactForm);
 
-  newmusician.save().then(
+  newsneaker.save().then(
     (result) => {
       return res.json(result);
     },

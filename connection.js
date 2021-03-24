@@ -1,4 +1,4 @@
-let dbname = "march01";
+let dbname = "summative";
 let username = "staceyK";
 let password = "snowjin";
 
